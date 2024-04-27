@@ -1,13 +1,8 @@
 from flask import Flask, render_template, request, redirect, url_for
+import json
 
 app = Flask(__name__)
 
-# Dummy user data (in real world scenario, this would come from a database)
-users = {
-    'user1': 'password1',
-    'user2': 'password2',
-    'user3': 'password3'
-}
 
 @app.route('/')
 def index():
@@ -17,11 +12,18 @@ def index():
 def signin():
     username = request.form['username']
     password = request.form['password']
+
+    if len(username) == 0 or len(password)==0:
+        return "Invalid Input"
     
-    if username in users and users[username] == password:
-        return f'Welcome, {username}!'
-    else:
-        return 'Invalid username or password. Please try again.'
+    with open('data/usernames.json','r') as file:
+        data = json.load(file)
+    row = {'username':username,'password':password}
+    data.append(row)
+    with open('data/usernames.json','w') as file:
+        json.dump(data,file)
+        
+    return f"Your registration is sucessful {username}"
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0')
