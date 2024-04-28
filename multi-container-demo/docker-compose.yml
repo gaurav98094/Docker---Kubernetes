@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  database:
+    build: './database'
+    container_name: 'mongodb'
+    volumes:
+      - mongodb_data:/data/db
+  website:
+    build: ./website
+    container_name: 'flask_app'
+    ports:
+      - '5000:5000'
+volumes:
+  mongodb_data:

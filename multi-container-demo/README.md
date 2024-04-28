@@ -1,5 +1,6 @@
 Here's a complete setup for a Flask application with MongoDB, using Docker containers and a user-defined network for communication.
 
+![alt text](image.png)
 **Folder Structure:**
 ```
 website/

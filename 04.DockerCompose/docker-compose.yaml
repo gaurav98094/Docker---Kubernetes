@@ -42,8 +42,8 @@ services:
 
 # Any named volumes has to be listed here (only named volumes)
 volumes:
-  - data
-  - logs
+  data:
+  logs:
 
 
 # docker-compose up
