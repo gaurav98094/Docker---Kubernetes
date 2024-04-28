@@ -1,7 +1,5 @@
 FROM --platform=$BUILDPLATFORM python:3.9-alpine3.15
 
-LABEL MAINTAINER "Prashant Shahi <me@prashantshahi.dev>"
-
 RUN pip install --upgrade pip
 
 RUN adduser -D appuser

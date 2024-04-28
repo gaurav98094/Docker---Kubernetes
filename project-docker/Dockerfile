@@ -2,7 +2,6 @@
 
 FROM python:3.10-alpine3.15
 
-LABEL MAINTAINER "Prashant Shahi <me@prashantshahi.dev>"
 
 RUN pip install --upgrade pip
 
